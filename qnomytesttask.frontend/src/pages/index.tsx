@@ -1,6 +1,7 @@
 import ClientsInLine from "@/components/clientsInLine";
 import ClientsInService from "@/components/clientsInService";
 import Navbar from "@/components/navbar";
+import { ToastContainer } from "react-toastify";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
         <ClientsInService />
         <ClientsInLine />
       </div>
+
+      <ToastContainer />
     </div>
   );
 }

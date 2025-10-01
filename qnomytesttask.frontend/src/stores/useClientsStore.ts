@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { Client } from "@/types/Client";
+import { toast } from 'react-toastify';
 
 interface ClientsState {
   clientsInLine: Client[];
@@ -43,7 +44,10 @@ export const useClientsStore = create<ClientsState>((set) => ({
       set({ clientInService: null });
       return;
     }
-    if (!res.ok) throw new Error("Failed to call next client");
+    if (!res.ok) {
+      toast.error((await res.json()).detail);
+      return;
+    }
 
     const data: Client = await res.json();
     set((state) => ({
@@ -57,7 +61,10 @@ export const useClientsStore = create<ClientsState>((set) => ({
       `http://localhost:5263/api/Clients/addClientToLine?clientFullName=${encodeURIComponent(fullName)}`,
       { method: "POST" }
     );
-    if (!res.ok) throw new Error("Failed to add client");
+    if (!res.ok) {
+      toast.error((await res.json()).detail);
+      return;
+    }
     const newClient: Client = await res.json();
 
     newClient.checkInTime = new Date(newClient.checkInTime.toString().replace("Z", ""));
