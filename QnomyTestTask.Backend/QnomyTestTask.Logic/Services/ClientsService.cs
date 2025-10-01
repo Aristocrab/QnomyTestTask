@@ -36,7 +36,7 @@ public class ClientsService : IClientsService
             .FirstOrDefaultAsync(x => x.Status == ClientStatus.InService);
     }
 
-    public async Task AddClientToLine(string clientFullName)
+    public async Task<Client> AddClientToLine(string clientFullName)
     {
         if (string.IsNullOrWhiteSpace(clientFullName))
         {
@@ -45,7 +45,6 @@ public class ClientsService : IClientsService
         }
 
         var lastNumber = await _dbContext.Clients
-            .Where(c => c.Status == ClientStatus.InLine || c.Status == ClientStatus.InService)
             .MaxAsync(c => (int?)c.NumberInLine) ?? 0;
         
         var newClient = new Client
@@ -61,9 +60,11 @@ public class ClientsService : IClientsService
         
         _logger.LogInformation("Added new client {ClientFullName} with number {ClientNumberInLine} to the line", 
             newClient.FullName, newClient.NumberInLine);
+        
+        return newClient;
     }
 
-    public async Task CallNextClient()
+    public async Task<Client?> CallNextClient()
     {
         var inService = await _dbContext.Clients
             .FirstOrDefaultAsync(x => x.Status == ClientStatus.InService);
@@ -85,11 +86,13 @@ public class ClientsService : IClientsService
         if (nextClient is null)
         {
             _logger.LogInformation("No clients in line to call next");
-            return;
+            return null;
         }
         
         nextClient.Status = ClientStatus.InService;
         
         await _dbContext.SaveChangesAsync();
+        
+        return nextClient;
     }
 }

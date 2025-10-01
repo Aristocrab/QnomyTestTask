@@ -38,14 +38,14 @@ public class ClientsController : ControllerBase
     [HttpPost("addClientToLine")]
     public async Task<IActionResult> AddClientToLine(string clientFullName)
     {
-        await _clientsService.AddClientToLine(clientFullName);
-        return Ok();
+        var newClient = await _clientsService.AddClientToLine(clientFullName);
+        return Ok(newClient);
     }
 
     [HttpPost("callNextClient")]
     public async Task<IActionResult> CallNextClient()
     {
-        await _clientsService.CallNextClient();
-        return Ok();
+        var nextClient = await _clientsService.CallNextClient();
+        return Ok(nextClient);
     }
 }

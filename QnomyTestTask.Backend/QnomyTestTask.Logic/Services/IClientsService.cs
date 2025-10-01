@@ -7,6 +7,6 @@ public interface IClientsService
     Task<List<Client>> GetAllClients();
     Task<List<Client>> GetClientsInLine();
     Task<Client?> GetClientInService();
-    Task AddClientToLine(string clientFullName);
-    Task CallNextClient();
+    Task<Client> AddClientToLine(string clientFullName);
+    Task<Client?> CallNextClient();
 }
