@@ -16,7 +16,7 @@ export const useClientsStore = create<ClientsState>((set) => ({
   clientInService: null,
 
   fetchClientsInLine: async () => {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/Clients/getClientsInLine`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Clients/getClientsInLine`);
     if (res.ok) {
       const data: Client[] = await res.json();
       set({ clientsInLine: data });
@@ -24,7 +24,7 @@ export const useClientsStore = create<ClientsState>((set) => ({
   },
 
   fetchClientInService: async () => {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/Clients/getClientInService`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Clients/getClientInService`);
     if (res.ok) {
         if (res.status === 204) {
             set({ clientInService: null });
@@ -37,7 +37,7 @@ export const useClientsStore = create<ClientsState>((set) => ({
   },
 
   callNextClient: async () => {
-    const res = await fetch(`${process.env.BACKEND_URL}/api/Clients/callNextClient`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Clients/callNextClient`, {
       method: "POST",
     });
     if (res.status === 204) {
@@ -58,7 +58,7 @@ export const useClientsStore = create<ClientsState>((set) => ({
 
   addClientToLine: async (fullName: string) => {
     const res = await fetch(
-      `${process.env.BACKEND_URL}/api/Clients/addClientToLine?clientFullName=${encodeURIComponent(fullName)}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/Clients/addClientToLine?clientFullName=${encodeURIComponent(fullName)}`,
       { method: "POST" }
     );
     if (!res.ok) {
