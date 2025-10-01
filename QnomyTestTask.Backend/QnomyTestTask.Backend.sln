@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QnomyTestTask.Domain", "QnomyTestTask.Domain\QnomyTestTask.Domain.csproj", "{9FD1B8BC-D78A-4BA1-8499-5A6B06259391}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QnomyTestTask.Logic", "QnomyTestTask.Logic\QnomyTestTask.Logic.csproj", "{CBADC226-13AE-4557-84AF-A8E06341E1CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QnomyTestTask.WebApi", "QnomyTestTask.WebApi\QnomyTestTask.WebApi.csproj", "{316DD5BD-B883-42A1-AD2B-231BFF1E8EBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FD1B8BC-D78A-4BA1-8499-5A6B06259391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD1B8BC-D78A-4BA1-8499-5A6B06259391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD1B8BC-D78A-4BA1-8499-5A6B06259391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD1B8BC-D78A-4BA1-8499-5A6B06259391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBADC226-13AE-4557-84AF-A8E06341E1CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBADC226-13AE-4557-84AF-A8E06341E1CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBADC226-13AE-4557-84AF-A8E06341E1CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBADC226-13AE-4557-84AF-A8E06341E1CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{316DD5BD-B883-42A1-AD2B-231BFF1E8EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{316DD5BD-B883-42A1-AD2B-231BFF1E8EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{316DD5BD-B883-42A1-AD2B-231BFF1E8EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{316DD5BD-B883-42A1-AD2B-231BFF1E8EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
