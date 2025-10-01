@@ -49,7 +49,7 @@ public class ClientsService : IClientsService
         
         var newClient = new Client
         {
-            FullName = clientFullName,
+            FullName = clientFullName.Trim(),
             CheckInTime = DateTime.UtcNow,
             Status = ClientStatus.InLine,
             NumberInLine = lastNumber + 1
