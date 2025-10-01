@@ -41,7 +41,7 @@ public class ClientsService : IClientsService
         if (string.IsNullOrWhiteSpace(clientFullName))
         {
             _logger.LogWarning("Attempted to add a client with an empty name");
-            throw new ArgumentException("Client full name cannot be empty or whitespace.", nameof(clientFullName));
+            throw new ArgumentException("Client full name cannot be empty or whitespace.");
         }
 
         var lastNumber = await _dbContext.Clients
