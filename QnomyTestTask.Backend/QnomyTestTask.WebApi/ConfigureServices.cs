@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QnomyTestTask.Logic.Database;
 using QnomyTestTask.Logic.Services;
@@ -23,6 +24,10 @@ public static class ConfigureServices
         
         // Controllers
         builder.Services.AddControllers();
+        builder.Services.Configure<ApiBehaviorOptions>(options =>
+        {
+            options.SuppressModelStateInvalidFilter = true;
+        }); // remove default model state validation
         
         // SqlServer
         builder.Services.AddDbContext<AppDbContext>(options =>
